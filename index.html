@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Student Portfolio</title>
-      <link rel="stylesheet" href="style.css">
-   </head>
-   <body>
-      <header>
-         <h1 id="name">Gian Edward Sambas</h1>
-         <img src="gianportfolio.jpg" alt="Profile Picture" id="profile-img">
-         <p id="course-year">IS - 2nd Year</p>
-         <button id="theme-toggle">Switch Theme</button>
-      </header>
-      <section id="achievements">
-         <h2>Achievements/Certifications</h2>
-         <ul>
-            <li>Graduated High School with Honors</li>
-            <li>2nd place Battle of the Bands</li>
-            <li>Consistent Good Grades</li>
-         </ul>
-      </section>
-      <section id="projects">
-         <h2>Previous Projects</h2>
-         <ul>
-            <li>EquipSense - Gym Equipment Tracker</li>
-            <li>LibraryPal - Library Inventory Management</li>
-            <li>SYNCO - Messaging app</li>
-         </ul>
-      </section>
-      <script src="script.js"></script>
-   </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="profile">
+      <figure>
+        <img src="gianportfolio.jpg" alt="Profile picture of Gian Edward Sambas" id="profile-img" />
+      </figure>
+      <div class="profile-meta">
+        <h1 id="name">Gian Edward Sambas</h1>
+        <p id="course-year">IS - 2nd Year</p>
+        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">Switch Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="achievements" class="card" aria-labelledby="achievements-heading">
+      <h2 id="achievements-heading">Achievements/Certifications</h2>
+      <ul>
+        <li>Graduated High School with Honors</li>
+        <li>2nd place Battle of the Bands</li>
+        <li>Consistent Good Grades</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="card" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Previous Projects</h2>
+      <ul>
+        <li>EquipSense - Gym Equipment Tracker</li>
+        <li>LibraryPal - Library Inventory Management</li>
+        <li>SYNCO - Messaging app</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p class="copyright">© <span id="name-footer">Gian Edward Sambas</span></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
 </html>
