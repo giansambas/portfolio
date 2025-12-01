@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
-    <!-- Sidebar (profile + theme button + small footer) -->
+    <!-- LEFT SIDEBAR -->
     <aside class="sidebar" role="complementary" aria-label="Profile">
       <div class="profile">
         <figure>
@@ -28,7 +29,14 @@
         </button>
       </div>
 
-    <!-- Main content (Achievements above Projects) -->
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-footer">
+        <p class="copyright">© <span id="name-footer">Gian Edward Sambas</span></p>
+      </div>
+    </aside>
+
+    <!-- RIGHT CONTENT -->
     <main id="main" class="content" tabindex="-1" role="main">
       <section id="achievements" class="card" aria-labelledby="achievements-heading">
         <div class="card-inner">
@@ -53,6 +61,11 @@
       </section>
     </main>
   </div>
+
+  <!-- Page footer (full width, below the grid) -->
+  <footer class="page-footer" role="contentinfo">
+    <p class="footer-copy">© <span id="name-footer-2">Gian Edward Sambas</span></p>
+  </footer>
 
   <script src="script.js" defer></script>
 </body>
