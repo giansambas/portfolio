@@ -1,4 +1,4 @@
-/* style.css - improved layout + updated theme button */
+/* style.css - final: button black in light mode, white in dark mode + layout */
 
 /* CSS variables for easy theming */
 :root{
@@ -7,8 +7,9 @@
   --card-bg: #ffffff;
   --accent: #0066cc;
 
-  --toggle-bg: #ffffff;   /* light mode button background */
-  --toggle-text: #000000; /* light mode button text/icon */
+  /* Toggle button: default = LIGHT MODE */
+  --toggle-bg: #000000;   /* black button in light mode */
+  --toggle-text: #ffffff; /* white text/icon in light mode */
 
   --radius: 12px;
   --shadow: 0 6px 18px rgba(0,0,0,0.06);
@@ -34,6 +35,11 @@ body{
   display:flex;
   justify-content:center;
   transition: background-color 320ms ease, color 320ms ease;
+}
+
+/* helper class used by JS to smooth color swap */
+.theme-transition{
+  transition: background-color 420ms ease, color 420ms ease, box-shadow 320ms ease;
 }
 
 /* central wrapper */
@@ -107,32 +113,23 @@ button#theme-toggle{
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
+/* small circular icon uses currentColor so it matches text color */
 button#theme-toggle .icon{
   width: 18px;
   height: 18px;
   border-radius: 50%;
   background: currentColor;
-  opacity: 0.8;
+  opacity: 0.95;
   transition: transform .22s ease, opacity .22s ease;
 }
 
+/* hover / active */
 button#theme-toggle:hover{
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
-
 button#theme-toggle:active{
   transform: translateY(1px);
-}
-
-/* White button for dark mode */
-body.dark{
-  --bg: #121212;
-  --text: #f5f5f5;
-  --card-bg: #1b1b1b;
-
-  --toggle-bg: #ffffff;   /* stays white */
-  --toggle-text: #000000; /* stays black for contrast */
 }
 
 /* --- CONTENT AREA --- */
@@ -148,7 +145,7 @@ body.dark{
   padding:20px;
   border-radius:var(--radius);
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transition: transform .22s ease, box-shadow .22s ease;
+  transition: transform .22s ease, box-shadow .22s ease, background-color 320ms ease;
 }
 
 .card:hover{
@@ -174,7 +171,7 @@ body.dark{
 /* --- FOOTER --- */
 .site-footer{
   text-align:right;
-  color: rgba(255,255,255,0.6);
+  color: rgba(0,0,0,0.6);
   font-size:0.95rem;
 }
 
@@ -198,4 +195,28 @@ body.dark{
   body{ padding:18px 12px; }
   .card{ padding:16px; }
   #name{ font-size:1.2rem; }
+}
+
+/* --- DARK MODE OVERRIDES --- */
+/* dark mode flips the page background + card background and sets toggle to white */
+body.dark{
+  --bg: #121212;
+  --text: #f5f5f5;
+  --card-bg: linear-gradient(180deg, #141414 0%, #171717 100%);
+
+  /* in dark mode the toggle button becomes white with black text */
+  --toggle-bg: #ffffff;
+  --toggle-text: #000000;
+}
+
+/* --- STRONG OVERRIDES TO AVOID OLD BLUE RULES --- */
+/* Place this at the end so it overrides earlier rules (important if an old rule is still loaded). */
+button#theme-toggle{
+  background: var(--toggle-bg) !important;
+  color: var(--toggle-text) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.20) !important;
+  border: 0 !important;
+}
+button#theme-toggle .icon{
+  background: currentColor !important;
 }
