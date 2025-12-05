@@ -173,7 +173,8 @@ button#theme-toggle:active{ transform: translateY(1px); }
 }
 
 #achievements{ order:0; }
-#projects{ order:1; }
+#projects{ order:1; } 
+#landingpage{ order:2; }
 
 
 body.dark{
